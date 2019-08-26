@@ -31,7 +31,7 @@ def get_club_names(html):
 def write_csv(info):
     with open("info.csv", 'w',newline='')as f:
         header = info.keys()
-        writer = csv.DictWriter(f, fieldnames=tuple(header))
+        writer = csv.DictWriter(f, fieldnames=header)
         writer.writeheader()
         for pivoted in zip(*info.values()):
             writer.writerow(dict(zip(header, pivoted)))
